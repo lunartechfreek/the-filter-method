@@ -21,6 +21,16 @@ const people = [
   },
 ];
 
+const oldEnough = people.filter(person => person.age >= 21);
+console.log(oldEnough);
+
+// Mini challenge - my method ** worked
+// const paul = people.filter(person => person.name === "Paul" ? person: null);
+// console.log(paul);
+
+// Their method
+const paul = people.filter(p => p.name === "Paul");
+console.log(paul);
 
 // Complex Filtering
 const students = [
