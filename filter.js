@@ -32,6 +32,10 @@ console.log(oldEnough);
 const paul = people.filter(p => p.name === "Paul");
 console.log(paul);
 
+// To remove result logged from the array targert the item [0]
+// const paul = people.filter(p => p.name === "Paul")[0];
+
+
 // Complex Filtering
 const students = [
   {
@@ -65,3 +69,19 @@ const students = [
     ]
   },
 ];
+
+// ************Long Method *****************
+// const candidates = students.filter(student => {
+//   // Filter inner skills array to those with at least 5 years exp
+//   let strongSkills = student.skills.filter(skill => skill.yrsExperience >= 5);
+//   return strongSkills.length > 0;
+// });
+
+const has5yrsExp = skill => skill.yrsExperience >= 5
+const hasStrongSkills = student => student.skills.filter(has5yrsExp).length > 0;
+
+const candidates = students.filter(hasStrongSkills);
+
+const candidateName = candidates.map(candidate => candidate.name);
+
+console.log(candidateName);
